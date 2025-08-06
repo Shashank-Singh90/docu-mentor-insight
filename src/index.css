@@ -1,42 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* DocuMentor Design System - All colors MUST be HSL */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    /* DocuMentor Brand Colors */
+    --primary: 207 68% 34%;           /* #1976D2 - Primary Blue */
+    --primary-foreground: 0 0% 100%;  /* White text on primary */
+    --primary-light: 207 71% 62%;     /* #42A5F5 - Light Blue */
+    
+    --secondary: 205 50% 90%;         /* Light secondary */
+    --secondary-foreground: 207 68% 20%;
+    
+    --success: 122 39% 49%;           /* #4CAF50 - Success Green */
+    --error: 4 90% 58%;               /* #F44336 - Error Red */
+    --warning: 45 100% 51%;           /* Warning Orange */
+    
+    /* DocuMentor Specific */
+    --chat-user: 207 68% 34%;         /* User message background */
+    --chat-ai: 0 0% 100%;             /* AI message background */
+    --chat-background: 214 35% 97%;   /* #F5F7FA - Chat area background */
+    --sidebar-background: 0 0% 100%;   /* Sidebar background */
+    
+    /* Base System Colors */
+    --background: 214 35% 97%;        /* #F5F7FA - Main background */
+    --foreground: 222 84% 5%;         /* Near black text */
+    --card: 0 0% 100%;                /* White cards */
+    --card-foreground: 222 84% 5%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: 222 84% 5%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 207 71% 62%;            /* Light blue accent */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 214 32% 91%;
+    --input: 0 0% 100%;
+    --ring: 207 68% 34%;
+    
+    --radius: 0.75rem;
+    
+    /* DocuMentor Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-chat: linear-gradient(180deg, hsl(var(--chat-background)), hsl(220 20% 95%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    
+    /* DocuMentor Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(var(--primary) / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(var(--primary) / 0.1), 0 2px 4px -1px hsl(var(--primary) / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--primary) / 0.1), 0 4px 6px -2px hsl(var(--primary) / 0.05);
+    --shadow-chat: 0 2px 8px hsl(var(--primary) / 0.08);
+    
+    /* Sidebar Tokens */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 84% 5%;
+    --sidebar-primary: 207 68% 34%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 207 71% 95%;
+    --sidebar-accent-foreground: 207 68% 34%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 207 68% 34%;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +88,66 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    /* DocuMentor Dark Theme */
+    --primary: 207 71% 62%;           /* Lighter blue for dark mode */
+    --primary-foreground: 222 84% 5%; /* Dark text on primary */
+    --primary-light: 207 68% 70%;     /* Even lighter blue */
+    
+    --secondary: 217 33% 18%;         /* Dark secondary */
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    
+    --success: 122 39% 49%;           /* Same green works in dark */
+    --error: 4 90% 58%;               /* Same red works in dark */
+    --warning: 45 100% 51%;           /* Same orange */
+    
+    /* DocuMentor Dark Specific */
+    --chat-user: 207 68% 34%;         /* Keep user messages blue */
+    --chat-ai: 217 33% 18%;           /* Dark AI message background */
+    --chat-background: 222 84% 5%;    /* #1A1A1A - Dark chat background */
+    --sidebar-background: 217 33% 15%; /* Dark sidebar */
+    
+    /* Base Dark Colors */
+    --background: 222 84% 5%;         /* #1A1A1A - Dark background */
+    --foreground: 210 40% 98%;        /* Light text */
+    --card: 217 33% 15%;              /* #2D2D2D - Dark cards */
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 217 33% 15%;
+    --popover-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 207 71% 62%;
+    --accent-foreground: 222 84% 5%;
+    
+    --destructive: 4 90% 58%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 207 71% 62%;
+    
+    /* Dark Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-chat: linear-gradient(180deg, hsl(var(--chat-background)), hsl(222 84% 7%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    
+    /* Dark Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -1px hsl(0 0% 0% / 0.2);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.3), 0 4px 6px -2px hsl(0 0% 0% / 0.2);
+    --shadow-chat: 0 2px 8px hsl(0 0% 0% / 0.4);
+    
+    /* Dark Sidebar */
+    --sidebar-background: 217 33% 12%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 207 71% 62%;
+    --sidebar-primary-foreground: 222 84% 5%;
+    --sidebar-accent: 217 33% 18%;
+    --sidebar-accent-foreground: 207 71% 62%;
+    --sidebar-border: 217 33% 18%;
+    --sidebar-ring: 207 71% 62%;
   }
 }
 
@@ -100,6 +157,96 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+  
+  /* Custom scrollbar for chat */
+  .chat-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .chat-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .chat-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  
+  .chat-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer components {
+  /* Chat Components */
+  .message-bubble {
+    @apply rounded-lg px-4 py-3 max-w-[80%] break-words;
+    box-shadow: var(--shadow-chat);
+  }
+  
+  .message-user {
+    @apply bg-primary text-primary-foreground ml-auto;
+  }
+  
+  .message-ai {
+    @apply bg-chat-ai text-foreground mr-auto border border-border;
+  }
+  
+  .code-block {
+    @apply relative rounded-md bg-muted/50 border;
+  }
+  
+  .copy-button {
+    @apply absolute top-2 right-2 p-1.5 rounded bg-background/80 border border-border 
+           opacity-0 group-hover:opacity-100 transition-opacity duration-200;
+  }
+  
+  /* Input Components */
+  .chat-input {
+    @apply w-full min-h-[48px] max-h-32 resize-none rounded-lg border border-input 
+           bg-input px-4 py-3 text-foreground placeholder:text-muted-foreground 
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring 
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .send-button {
+    @apply h-12 w-12 rounded-lg bg-gradient-to-r from-primary to-primary-light 
+           text-primary-foreground hover:shadow-lg transition-all duration-200 
+           hover:scale-105 disabled:opacity-50 disabled:hover:scale-100;
+  }
+  
+  /* Sidebar Components */
+  .sidebar-item {
+    @apply flex items-center gap-3 w-full p-3 rounded-lg text-left 
+           hover:bg-sidebar-accent hover:text-sidebar-accent-foreground 
+           transition-colors duration-200;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-sidebar-accent text-sidebar-accent-foreground;
+  }
+  
+  /* Animation Components */
+  .typing-indicator {
+    @apply flex items-center gap-1;
+  }
+  
+  .typing-dot {
+    @apply w-2 h-2 rounded-full bg-muted-foreground animate-pulse;
+    animation-delay: calc(var(--delay) * 0.2s);
+  }
+  
+  /* Utility Components */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glassmorphism {
+    @apply backdrop-blur-sm bg-background/80 border border-border/50;
   }
 }
