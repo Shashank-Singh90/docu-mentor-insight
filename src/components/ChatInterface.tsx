@@ -5,6 +5,7 @@ import { ChatMessage } from './ChatMessage';
 import { ChatInput } from './ChatInput';
 import { TypingIndicator } from './TypingIndicator';
 import type { Message } from './DocuMentorLayout';
+import { documenterAPI } from '../services/api';
 
 interface ChatInterfaceProps {
   messages: Message[];
