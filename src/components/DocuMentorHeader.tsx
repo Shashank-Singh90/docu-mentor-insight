@@ -20,18 +20,20 @@ interface DocuMentorHeaderProps {
   isDarkMode: boolean;
   onToggleDarkMode: () => void;
   onToggleSidebar: () => void;
+  onOpenCommandPalette: () => void;
 }
 
 export function DocuMentorHeader({ 
   isDarkMode, 
   onToggleDarkMode,
-  onToggleSidebar 
+  onToggleSidebar,
+  onOpenCommandPalette
 }: DocuMentorHeaderProps) {
   return (
     <motion.header 
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="h-16 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50"
+      className="h-16 border-b border-white/10 glass-panel backdrop-blur-md sticky top-0 z-40"
     >
       <div className="h-full px-4 flex items-center justify-between">
         {/* Left side - Logo and nav trigger */}
@@ -42,14 +44,28 @@ export function DocuMentorHeader({
             className="flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="flex items-center justify-center w-10 h-10 bg-gradient-primary rounded-lg">
+            <div className="flex items-center justify-center w-10 h-10 gradient-primary rounded-xl shadow-glow">
               <span className="text-xl">🧠</span>
             </div>
             <div>
               <h1 className="text-xl font-bold gradient-text">DocuMentor</h1>
-              <p className="text-xs text-muted-foreground">AI Documentation Assistant</p>
+              <p className="text-xs text-foreground-muted">AI Documentation Assistant</p>
             </div>
           </motion.div>
+
+          {/* Search shortcut hint */}
+          <motion.button
+            onClick={onOpenCommandPalette}
+            className="hidden md:flex items-center gap-2 px-4 py-2 glass-button rounded-xl text-sm text-foreground-muted hover:text-foreground transition-colors"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <span>Search or ask anything...</span>
+            <div className="flex items-center gap-1">
+              <kbd className="px-2 py-1 bg-white/10 rounded text-xs">⌘</kbd>
+              <kbd className="px-2 py-1 bg-white/10 rounded text-xs">K</kbd>
+            </div>
+          </motion.button>
         </div>
 
         {/* Right side - Controls */}
